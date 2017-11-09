@@ -88,14 +88,6 @@ public final class Mapa {
 		this.mapa = mapa;
 	}
 
-	/*public Dragon getDragonObject() {
-		return dragonObject;
-	}
-
-	public void setDragonObject(Dragon dragonObject) {
-		this.dragonObject = dragonObject;
-	}
-*/
 	public void setHeroObject(Hero heroObject) {
 		this.heroObject = heroObject;
 	}
@@ -107,8 +99,17 @@ public final class Mapa {
 	
 	public void removeElements() {
 		
-	setMapa(this.mapa);
-	
+		exitObject.remove();
+		sordObject.remove();
+		heroObject.remove();
+		
+		for(int i=0; i<list.size(); i++) {
+			//mapaHero.setFoundIt(1);
+			list.get(i).RemoveDragon();
+			
+			
+		}		
+			list.clear();
 	}
 
 	/*retorna a lista*/

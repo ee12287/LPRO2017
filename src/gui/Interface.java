@@ -81,9 +81,15 @@ public class Interface {
 	
 	private int insertElements() {
 		
+		//System.out.print(numDragons.getText());
+		if(numDragons.getText().equals("")) {
+			console.setText("Numero de dragões inválido . 0 < Nº dragões < 5");
+			return 1;		
+		}
+		
 		int num = Integer.valueOf(numDragons.getText());
 		
-		if(num < 1 || num > 4) {
+		if(num < 1 || num > 4 ) {
 				console.setText("Numero de dragões inválido . 0 < Nº dragões < 5");
 				return 1;		
 			}
@@ -132,6 +138,10 @@ public class Interface {
 			btnLeft.setEnabled(false);
 			btnRight.setEnabled(false);
 		}
+	}
+	
+	private void removeElements() {
+		mapaObject.removeElements();
 	}
 	
 	
@@ -199,9 +209,9 @@ public class Interface {
 		btnNewGame.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				numberOfGames = 1;
-				if (numberOfGames == 1) {
-					
+				numberOfGames++;
+				
+				if (numberOfGames == 1) {	
 					if(insertElements() == 0) {
 							printMap();
 							stateButtons(1);
@@ -209,14 +219,11 @@ public class Interface {
 				}
 				
 				else {
-					
-					mapaObject.removeElements();
-					
+					removeElements();
 					if(insertElements() == 0) {
 						printMap();
 						stateButtons(1);
-				}
-					
+					}
 				}
 				
 			}

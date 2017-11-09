@@ -136,6 +136,21 @@ public class Hero extends Elements {
 		mapaObject.setMapa(mapaVector);
 
 	}
+	
+	public void remove() {
+		heroState = Variables.PIN_HERO;
+		foundIt = 0;
+		armed = false;
+		win = 0;
+		continueAux = false;
+		
+		Mapa mapaObject = Mapa.getInstance();
+		String[][] mapaVector = mapaObject.getMapa();
+		
+		mapaVector[Vector[0]][Vector[1]] = Variables.PIN_HALL;
+		
+		
+	}
 
 	public int getWin() {
 		return win;

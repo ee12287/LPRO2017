@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Dragon extends Elements {
 
-	// private int[] dragonVector;
+	
 	private String[][] mapaVector;
 
 	public void ColocaDragao() {
 		Mapa mapaObject = Mapa.getInstance();
 
-		// dragonVector = new int[2];
+		
 		boolean dragonPositionAux = false;
 		mapaVector = mapaObject.getMapa();
 
@@ -46,6 +46,16 @@ public class Dragon extends Elements {
 		this.Vector = dragonVector;
 
 	}
+	
+	public void RemoveDragon() {
+		
+		Mapa mapaObject = Mapa.getInstance();
+		String[][] mapaVector = mapaObject.getMapa();
+
+		mapaVector[Vector[0]][Vector[1]] = Variables.PIN_HALL;
+		         
+		
+	}
 
 	public void MoveDragao() {
 
@@ -68,7 +78,7 @@ public class Dragon extends Elements {
 
 		}
 
-		int dragon_moved = 1;
+		int dragon_moved = 0;
 		while (dragon_moved != 1) {
 			int random_l = (1 + (int) (Math.random() * 3)) - 2;
 			int random_c = (1 + (int) (Math.random() * 3)) - 2;
